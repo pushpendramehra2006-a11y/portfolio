@@ -1,33 +1,71 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // --- 1. Video Frame & Theme Sync Engine ---
+    // --- 1. Real-time Video Frame Color & Text Contrast Sync Engine ---
     const bgVideo = document.getElementById('bg-video');
-    const rootElement = document.documentElement;
+    const heroContent = document.querySelector('.hero-content');
+    const heroHeadings = document.querySelectorAll('.hero-content h1, .hero-content h2, .hero-content p, .hero-content .greeting');
 
     if (bgVideo) {
-        // Video loop error prevention
-        bgVideo.playbackRate = 0.9; // Thoda smooth slow play
-        
-        bgVideo.addEventListener('timeupdate', () => {
-            const currentTime = bgVideo.currentTime;
+        bgVideo.playbackRate = 0.85; // Smooth slow cinematic play
 
-            // Video frames ke anusaar dynamic theme tint sync
-            if (currentTime < 15) {
-                // Scene 1: Night / Starry Meteor Blue (0s - 15s)
-                rootElement.style.setProperty('--card-tint', 'rgba(10, 20, 40, 0.45)');
-                rootElement.style.setProperty('--border-tint', 'rgba(99, 179, 237, 0.25)');
-            } else if (currentTime >= 15 && currentTime < 30) {
-                // Scene 2: City / Twilight Glow (15s - 30s)
-                rootElement.style.setProperty('--card-tint', 'rgba(26, 32, 44, 0.50)');
-                rootElement.style.setProperty('--border-tint', 'rgba(237, 137, 54, 0.25)');
-            } else if (currentTime >= 30 && currentTime < 50) {
-                // Scene 3: Sunset / Golden Skies & Clouds (30s - 50s) -> Jaise aapke screenshot mein hai!
-                rootElement.style.setProperty('--card-tint', 'rgba(45, 27, 20, 0.48)');
-                rootElement.style.setProperty('--border-tint', 'rgba(255, 179, 108, 0.35)');
-            } else {
-                // Scene 4: Clear Day / Blue Lake & Greens (50s onwards)
-                rootElement.style.setProperty('--card-tint', 'rgba(15, 32, 67, 0.48)');
-                rootElement.style.setProperty('--border-tint', 'rgba(129, 230, 217, 0.30)');
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+
+        bgVideo.addEventListener('timeupdate', () => {
+            if (bgVideo.paused || bgVideo.ended) return;
+
+            try {
+                canvas.width = 50;
+                canvas.height = 50;
+                context.drawImage(bgVideo, 0, 0, 50, 50);
+
+                // Video frame ke center ka average color nikalna
+                const frameData = context.getImageData(10, 10, 30, 30).data;
+                let r = 0, g = 0, b = 0, count = 0;
+
+                for (let i = 0; i < frameData.length; i += 4) {
+                    r += frameData[i];
+                    g += frameData[i+1];
+                    b += frameData[i+2];
+                    count++;
+                }
+
+                r = Math.floor(r / count);
+                g = Math.floor(g / count);
+                b = Math.floor(b / count);
+
+                // Luminance (Brightness) calculate karna (0 to 255)
+                const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+                // Frame ke hisaab se text aur glass tint ko dynamic adjust karna
+                if (brightness > 130) {
+                    // Agar background bright/light hai -> Text Dark hoga, Glass halka dark transparent rahega
+                    if (heroContent) {
+                        heroContent.style.background = 'rgba(0, 0, 0, 0.35)';
+                        heroContent.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                    }
+                    heroHeadings.forEach(el => {
+                        if (!el.classList.contains('greeting') && !el.querySelector('span')) {
+                            el.style.color = '#1e293b'; // Dark crisp text for bright bg
+                            el.style.textShadow = '0 1px 4px rgba(255, 255, 255, 0.8)';
+                        }
+                    });
+                } else {
+                    // Agar background dark hai -> Text Clean White hoga, Glass transparent rahega
+                    if (heroContent) {
+                        heroContent.style.background = 'rgba(255, 255, 255, 0.05)';
+                        heroContent.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+                    }
+                    heroHeadings.forEach(el => {
+                        if (!el.classList.contains('greeting') && !el.querySelector('span')) {
+                            el.style.color = '#ffffff'; // Pure white text for dark bg
+                            el.style.textShadow = '0 2px 8px rgba(0, 0, 0, 0.9)';
+                        }
+                    });
+                }
+            } catch (e) {
+                // Cross-origin or loading fallback protection
+                console.log("Frame analysis waiting...");
             }
         });
     }
@@ -96,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const ambientLight = document.getElementById('projector-ambient-light');
     const videoThumbs = document.querySelectorAll('.click-to-play');
 
-    videoThumbs.forEach(wrapper => {
+    videoThumbs.gh = videoThumbs.forEach(wrapper => {
         wrapper.addEventListener('click', () => {
             const videoId = wrapper.getAttribute('data-video-id');
             
