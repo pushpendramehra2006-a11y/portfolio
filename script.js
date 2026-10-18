@@ -1,6 +1,38 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // --- 1. Mobile Navbar Toggle ---
+    // --- 1. Video Frame & Theme Sync Engine ---
+    const bgVideo = document.getElementById('bg-video');
+    const rootElement = document.documentElement;
+
+    if (bgVideo) {
+        // Video loop error prevention
+        bgVideo.playbackRate = 0.9; // Thoda smooth slow play
+        
+        bgVideo.addEventListener('timeupdate', () => {
+            const currentTime = bgVideo.currentTime;
+
+            // Video frames ke anusaar dynamic theme tint sync
+            if (currentTime < 15) {
+                // Scene 1: Night / Starry Meteor Blue (0s - 15s)
+                rootElement.style.setProperty('--card-tint', 'rgba(10, 20, 40, 0.45)');
+                rootElement.style.setProperty('--border-tint', 'rgba(99, 179, 237, 0.25)');
+            } else if (currentTime >= 15 && currentTime < 30) {
+                // Scene 2: City / Twilight Glow (15s - 30s)
+                rootElement.style.setProperty('--card-tint', 'rgba(26, 32, 44, 0.50)');
+                rootElement.style.setProperty('--border-tint', 'rgba(237, 137, 54, 0.25)');
+            } else if (currentTime >= 30 && currentTime < 50) {
+                // Scene 3: Sunset / Golden Skies & Clouds (30s - 50s) -> Jaise aapke screenshot mein hai!
+                rootElement.style.setProperty('--card-tint', 'rgba(45, 27, 20, 0.48)');
+                rootElement.style.setProperty('--border-tint', 'rgba(255, 179, 108, 0.35)');
+            } else {
+                // Scene 4: Clear Day / Blue Lake & Greens (50s onwards)
+                rootElement.style.setProperty('--card-tint', 'rgba(15, 32, 67, 0.48)');
+                rootElement.style.setProperty('--border-tint', 'rgba(129, 230, 217, 0.30)');
+            }
+        });
+    }
+
+    // --- 2. Mobile Navbar Toggle ---
     const menuBtn = document.querySelector('.menu-btn');
     const navLinks = document.querySelector('.nav-links');
 
@@ -16,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- 2. Dynamic Typing Effect ---
+    // --- 3. Dynamic Typing Effect ---
     const textElement = document.querySelector('.typing-text');
     const phrases = ["Electronics Engineer", "Full-Stack Developer", "Video Editor", "Tech Enthusiast"];
     let phraseIndex = 0;
@@ -38,10 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         let typeSpeed = 100;
-
-        if (isDeleting) {
-            typeSpeed /= 2; 
-        }
+        if (isDeleting) typeSpeed /= 2; 
 
         if (!isDeleting && letterIndex === currentPhrase.length) {
             typeSpeed = 2000; 
@@ -60,14 +89,13 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(typeEffect, 1000);
     }
 
-    // --- 3. YouTube 3D Projector Modal Fix ---
+    // --- 4. YouTube 3D Projector Modal ---
     const projectorModal = document.getElementById('projector-modal');
     const projectorContainer = document.getElementById('projector-video-container');
     const closeProjectorBtn = document.querySelector('.close-projector');
     const ambientLight = document.getElementById('projector-ambient-light');
     const videoThumbs = document.querySelectorAll('.click-to-play');
 
-    // Video open karne ka logic
     videoThumbs.forEach(wrapper => {
         wrapper.addEventListener('click', () => {
             const videoId = wrapper.getAttribute('data-video-id');
@@ -96,11 +124,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Video close karne ka logic
     function closeProjector() {
-        if (projectorModal) {
-            projectorModal.classList.remove('show');
-        }
+        if (projectorModal) projectorModal.classList.remove('show');
         document.body.style.overflow = 'auto';
         
         setTimeout(() => {
@@ -109,13 +134,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 400); 
     }
 
-    if (closeProjectorBtn) {
-        closeProjectorBtn.addEventListener('click', closeProjector);
-    }
+    if (closeProjectorBtn) closeProjectorBtn.addEventListener('click', closeProjector);
 
     if (projectorModal) {
         projectorModal.addEventListener('click', (e) => {
-            // Modal ke bahar ya close button par click karne par band hoga
             if(e.target === projectorModal || e.target === ambientLight) {
                 closeProjector();
             }
