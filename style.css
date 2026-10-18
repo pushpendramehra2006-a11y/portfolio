@@ -265,7 +265,7 @@ section {
     filter: brightness(1.1) contrast(1.5) grayscale(1);
 }
 
-/* --- Skills Section & Hover Tree Animation --- */
+/* --- Skills Section & Strict Isolated Hover Tree Animation --- */
 .skills-section { background: transparent !important; }
 
 .skills-grid {
@@ -274,70 +274,54 @@ section {
     gap: 2.5rem;
 }
 
-.skill-category {
+.skill-category, .project-card {
     background: rgba(255, 255, 255, 0.04) !important; 
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
-    border-radius: 24px;
-    padding: 2.5rem 2rem;
-    transition: all 0.4s ease;
-    overflow: hidden;
-}
-
-.skill-category:hover {
-    transform: translateY(-8px);
-    border-color: rgba(255, 122, 108, 0.4) !important;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5) !important;
-}
-
-.skill-icon { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1.5rem; }
-.skill-category h3 { color: #ffffff; text-shadow: 0 1px 5px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
-.skill-category p { color: #cbd5e1; text-shadow: 0 1px 4px rgba(0,0,0,0.8); font-size: 0.95rem; }
-
-.skill-tree {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.skill-category:hover .skill-tree {
-    max-height: 500px;
-    opacity: 1;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px dashed rgba(255, 122, 108, 0.4);
-}
-
-.skill-category:hover .tree-node:nth-child(1) { transition-delay: 0.1s; transform: translateX(0); opacity: 1; }
-.skill-category:hover .tree-node:nth-child(2) { transition-delay: 0.2s; transform: translateX(0); opacity: 1; }
-.skill-category:hover .tree-node:nth-child(3) { transition-delay: 0.3s; transform: translateX(0); opacity: 1; }
-
-/* --- Projects Section Fixed Styling --- */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
-    align-items: start;
-}
-
-.project-card {
-    background: rgba(255, 255, 255, 0.04) !important;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.18) !important;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
     border-radius: 24px;
     padding: 2.5rem;
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
 }
 
-.project-card:hover {
-    transform: translateY(-12px);
-    border-color: rgba(255, 122, 108, 0.4) !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
+.skill-tree, .project-tree {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.skill-category:hover, .project-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 122, 108, 0.5) !important;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5) !important;
+    z-index: 10;
+}
+
+.skill-category:hover .skill-tree, 
+.project-card:hover .project-tree {
+    max-height: 600px;
+    opacity: 1;
+    visibility: visible;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed rgba(255, 122, 108, 0.4);
+}
+
+.skill-icon { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1.5rem; }
+.skill-category h3 { color: #ffffff; text-shadow: 0 1px 5px rgba(0,0,0,0.8); margin-bottom: 0.5rem; }
+.skill-category p { color: #cbd5e1; text-shadow: 0 1px 4px rgba(0,0,0,0.8); font-size: 0.95rem; }
+
+/* --- Projects Section --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    align-items: start;
 }
 
 .project-header-flex {
@@ -407,21 +391,6 @@ section {
     border: 1px solid rgba(255, 122, 108, 0.3);
 }
 
-.project-tree, .skill-tree {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.project-card:hover .project-tree {
-    max-height: 400px;
-    opacity: 1;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px dashed rgba(255, 122, 108, 0.4);
-}
-
 .tree-line {
     border-left: 2px solid var(--accent-color);
     padding-left: 1.5rem;
@@ -438,12 +407,23 @@ section {
     transition: all 0.4s ease;
 }
 
-.project-card:hover .tree-node:nth-child(1) { transition-delay: 0.1s; transform: translateX(0); opacity: 1; }
-.project-card:hover .tree-node:nth-child(2) { transition-delay: 0.2s; transform: translateX(0); opacity: 1; }
-.project-card:hover .tree-node:nth-child(3) { transition-delay: 0.3s; transform: translateX(0); opacity: 1; }
+.skill-category:hover .tree-node:nth-child(1), .project-card:hover .tree-node:nth-child(1) { transition-delay: 0.1s; transform: translateX(0); opacity: 1; }
+.skill-category:hover .tree-node:nth-child(2), .project-card:hover .tree-node:nth-child(2) { transition-delay: 0.2s; transform: translateX(0); opacity: 1; }
+.skill-category:hover .tree-node:nth-child(3), .project-card:hover .tree-node:nth-child(3) { transition-delay: 0.3s; transform: translateX(0); opacity: 1; }
 
-.tree-node h4 { color: #ffffff; font-weight: 700; text-shadow: 0 1px 4px rgba(0,0,0,0.8); margin-bottom: 0.2rem; }
-.tree-node span { color: #cbd5e1; font-size: 0.9rem; text-shadow: 0 1px 4px rgba(0,0,0,0.8); }
+.tree-node h4 { 
+    color: #ffffff; 
+    font-weight: 700; 
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9); 
+    margin-bottom: 0.2rem; 
+}
+
+.tree-node span { 
+    color: #f8fafc !important; 
+    font-size: 0.9rem; 
+    font-weight: 500;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 10px rgba(0, 0, 0, 0.8); 
+}
 
 /* --- Edits Section --- */
 .edits-section { background: transparent !important; }
