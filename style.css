@@ -267,14 +267,15 @@ section {
 
 /* --- Skills Section & Strict Isolated Hover Tree Animation --- */
 .skills-section { background: transparent !important; }
-
+/* --- Skills Grid Fix (Prevents Side Cards from Stretching) --- */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
+    align-items: start !important; /* Yeh sabhi cards ko top par align rakhega taaki stretch na ho */
 }
 
-.skill-category, .project-card {
+.skill-category {
     background: rgba(255, 255, 255, 0.04) !important; 
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -282,12 +283,14 @@ section {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
     border-radius: 24px;
     padding: 2.5rem;
+    height: auto !important; /* Height automatic rahegi */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
 }
 
-.skill-tree, .project-tree {
+/* Jab tak hover na ho, tree bilkul chhupa rahega */
+.skill-tree {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -295,15 +298,15 @@ section {
     transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, visibility 0.4s ease;
 }
 
-.skill-category:hover, .project-card:hover {
+/* SIRF ussi card par hover hone par tree khulega jis par mouse hai */
+.skill-category:hover {
     transform: translateY(-10px);
     border-color: rgba(255, 122, 108, 0.5) !important;
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5) !important;
     z-index: 10;
 }
 
-.skill-category:hover .skill-tree, 
-.project-card:hover .project-tree {
+.skill-category:hover .skill-tree {
     max-height: 600px;
     opacity: 1;
     visibility: visible;
