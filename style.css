@@ -35,14 +35,16 @@ body {
 }
 
 /* --- FORCE CANVAS TO BACKGROUND --- */
-canvas#particle-background {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    z-index: -1 !important; 
-    pointer-events: none !important; 
+/* --- BACKGROUND VIDEO STYLING --- */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* Video ko pure screen par stretch karega bina ratio bigade */
+    z-index: -1; /* Pura content ke piche fix rahega */
+    pointer-events: none; /* Mouse clicks video ke aar-paar chale jayenge */
 }
 
 /* --- Glass Wrapper --- */

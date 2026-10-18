@@ -10,8 +10,11 @@
 </head>
 <body>
     
-    <!-- Circuit Animation Canvas right after body tag -->
-    <canvas id="particle-background"></canvas>
+    <!-- BACKGROUND VIDEO LOOP -->
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="bg-video.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
 
     <!-- GLASS WRAPPER START -->
     <div class="glass-wrapper">
@@ -260,8 +263,5 @@
 
     <!-- Scripts -->
     <script src="script.js"></script>
-    
-    <!-- Circuit Animation script right before closing body -->
-    <script src="circuit-animation.js"></script>
 </body>
 </html>
