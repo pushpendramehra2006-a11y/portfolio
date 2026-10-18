@@ -349,16 +349,27 @@ section {
     gap: 1rem;
 }
 
-.project-links a {
+.project-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 122, 108, 0.15);
+    border: 1px solid rgba(255, 122, 108, 0.4);
     color: var(--accent-color);
-    font-size: 1.4rem;
-    transition: transform 0.3s ease, color 0.3s ease;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
 }
 
-.project-links a:hover {
-    transform: scale(1.2);
+.project-action-btn:hover {
+    background: var(--accent-color);
     color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 122, 108, 0.4);
 }
 
 .project-card p {
