@@ -267,12 +267,12 @@ section {
 
 /* --- Skills Section & Strict Isolated Hover Tree Animation --- */
 .skills-section { background: transparent !important; }
-/* --- Skills Grid Fix (Prevents Side Cards from Stretching) --- */
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
-    align-items: start !important; /* Yeh sabhi cards ko top par align rakhega taaki stretch na ho */
+    align-items: start !important;
 }
 
 .skill-category {
@@ -283,13 +283,12 @@ section {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
     border-radius: 24px;
     padding: 2.5rem;
-    height: auto !important; /* Height automatic rahegi */
+    height: auto !important;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
 }
 
-/* Jab tak hover na ho, tree bilkul chhupa rahega */
 .skill-tree {
     max-height: 0;
     overflow: hidden;
@@ -298,7 +297,6 @@ section {
     transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, visibility 0.4s ease;
 }
 
-/* SIRF ussi card par hover hone par tree khulega jis par mouse hai */
 .skill-category:hover {
     transform: translateY(-10px);
     border-color: rgba(255, 122, 108, 0.5) !important;
@@ -324,7 +322,45 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 3rem;
-    align-items: start;
+    align-items: start !important;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.04) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 24px;
+    padding: 2.5rem;
+    height: auto !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-tree {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-12px);
+    border-color: rgba(255, 122, 108, 0.5) !important;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5) !important;
+    z-index: 10;
+}
+
+.project-card:hover .project-tree {
+    max-height: 500px;
+    opacity: 1;
+    visibility: visible;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed rgba(255, 122, 108, 0.4);
 }
 
 .project-header-flex {
