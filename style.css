@@ -44,13 +44,13 @@ body {
     width: 100%;
 }
 
-/* --- Navbar (Transparent Glass) --- */
+/* --- Navbar --- */
 header {
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.03); /* Extremely transparent */
+    background: rgba(255, 255, 255, 0.03); 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -154,7 +154,7 @@ section {
     box-shadow: var(--accent-glow);
 }
 
-/* --- HERO SECTION & TRUE TRANSPARENT GLASS --- */
+/* --- HERO SECTION & TRANSPARENT GLASS --- */
 .hero {
     display: flex;
     align-items: center;
@@ -166,7 +166,6 @@ section {
 .hero-content {
     flex: 1;
     padding-right: 2rem;
-    /* Bilkul transparent frosted glass taaki piche ka video saaf dikhe */
     background: rgba(255, 255, 255, 0.05) !important; 
     padding: 3rem;
     border-radius: 20px;
@@ -190,7 +189,6 @@ section {
     line-height: 1.1;
     margin-bottom: 1.5rem;
     font-weight: 800;
-    /* Heavy shadow taaki kisi bhi video frame par text fat na lage */
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95), 0 0 25px rgba(0, 0, 0, 0.6);
 }
 
@@ -205,6 +203,17 @@ section {
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
 }
 
+.typing-text::after {
+    content: '|';
+    color: var(--accent-color);
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
 .hero-desc {
     font-size: 1.2rem;
     max-width: 600px;
@@ -212,6 +221,7 @@ section {
     color: #e2e8f0;
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.95);
 }
+
 .hero-image {
     flex: 1;
     display: flex;
@@ -258,15 +268,14 @@ section {
 /* --- Transparent Cards for Skills, Projects & Edits --- */
 .skills-section, .edits-section { background: transparent !important; }
 
-.skills-grid, .project-grid {
+.skills-grid {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
 }
-.skills-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-.project-grid { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); align-items: start; }
 
-.skill-category, .project-card, .featured-video-card, .yt-channel-card, .contact {
-    background: rgba(255, 255, 255, 0.04) !important; /* Fully Transparent Glass */
+.skill-category, .featured-video-card, .yt-channel-card, .contact {
+    background: rgba(255, 255, 255, 0.04) !important; 
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.12) !important;
@@ -275,15 +284,15 @@ section {
     transition: transform 0.4s ease, border-color 0.4s ease;
 }
 
-.skill-category:hover, .project-card:hover, .featured-video-card:hover {
+.skill-category:hover, .featured-video-card:hover {
     transform: translateY(-8px);
     border-color: rgba(255, 122, 108, 0.4) !important;
 }
 
 .skill-category { padding: 2.5rem 2rem; }
 .skill-icon { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1.5rem; }
-.skill-category h3, .project-card h3, .video-info h3, .yt-info h3 { color: #ffffff; text-shadow: 0 1px 5px rgba(0,0,0,0.8); }
-.skill-category p, .project-card p, .video-info p, .yt-stats, .yt-bio { color: #cbd5e1; text-shadow: 0 1px 4px rgba(0,0,0,0.8); }
+.skill-category h3, .video-info h3, .yt-info h3 { color: #ffffff; text-shadow: 0 1px 5px rgba(0,0,0,0.8); }
+.skill-category p, .video-info p, .yt-stats, .yt-bio { color: #cbd5e1; text-shadow: 0 1px 4px rgba(0,0,0,0.8); }
 
 .skill-tags span {
     background: rgba(255, 255, 255, 0.06);
@@ -295,6 +304,77 @@ section {
     font-weight: 500;
 }
 
+/* --- Projects Section Fixed Styling --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    align-items: start;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.04) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 24px;
+    padding: 2.5rem;
+    transition: all 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-12px);
+    border-color: rgba(255, 122, 108, 0.4) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+.project-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.project-card h3 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    font-weight: 800;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+    margin: 0;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-links a {
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.project-links a:hover {
+    transform: scale(1.2);
+    color: #ffffff;
+}
+
+.project-card p {
+    color: #e2e8f0;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
 .tech-stack span {
     background: rgba(255, 122, 108, 0.15);
     color: var(--accent-color);
@@ -304,8 +384,6 @@ section {
     font-weight: 600;
     border: 1px solid rgba(255, 122, 108, 0.3);
 }
-
-.project-card { padding: 2.5rem; }
 
 .project-tree {
     max-height: 0;
