@@ -166,14 +166,13 @@ section {
 .hero-content {
     flex: 1;
     padding-right: 2rem;
-    /* 100% Transparent Glass with subtle frosted edge border */
-    background: rgba(255, 255, 255, 0.04) !important; 
+    background: rgba(255, 255, 255, 0.03) !important; /* Ekdum transparent glass */
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25) !important;
     padding: 3rem;
     border-radius: 20px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
 .greeting {
