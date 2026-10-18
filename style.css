@@ -154,7 +154,7 @@ section {
     box-shadow: var(--accent-glow);
 }
 
-/* --- HERO SECTION & FULLY TRANSPARENT GLASS --- */
+/* --- HERO SECTION & TRUE TRANSPARENT GLASS --- */
 .hero {
     display: flex;
     align-items: center;
@@ -166,13 +166,14 @@ section {
 .hero-content {
     flex: 1;
     padding-right: 2rem;
-    background: rgba(255, 255, 255, 0.03) !important; /* Ekdum transparent glass */
-    backdrop-filter: blur(6px) !important;
-    -webkit-backdrop-filter: blur(6px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.18) !important;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25) !important;
+    /* Bilkul transparent frosted glass taaki piche ka video saaf dikhe */
+    background: rgba(255, 255, 255, 0.05) !important; 
     padding: 3rem;
     border-radius: 20px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
 .greeting {
@@ -180,7 +181,7 @@ section {
     color: var(--accent-color);
     margin-bottom: 0.5rem;
     font-weight: 600;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
 }
 
 .hero h1 {
@@ -189,8 +190,8 @@ section {
     line-height: 1.1;
     margin-bottom: 1.5rem;
     font-weight: 800;
-    /* Smart drop-shadow taaki light ya dark kisi bhi video background pe text fat na lage */
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0,0,0,0.5);
+    /* Heavy shadow taaki kisi bhi video frame par text fat na lage */
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95), 0 0 25px rgba(0, 0, 0, 0.6);
 }
 
 .hero h1 span { color: var(--accent-color); }
@@ -201,18 +202,7 @@ section {
     margin-bottom: 2rem;
     font-weight: 500;
     min-height: 40px; 
-    text-shadow: 0 1px 6px rgba(0,0,0,0.8);
-}
-
-.typing-text::after {
-    content: '|';
-    color: var(--accent-color);
-    animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
 }
 
 .hero-desc {
@@ -220,9 +210,8 @@ section {
     max-width: 600px;
     margin-bottom: 3rem;
     color: #e2e8f0;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.9);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.95);
 }
-
 .hero-image {
     flex: 1;
     display: flex;
