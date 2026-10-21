@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pushpendra Mehra | Portfolio</title>
+    <title>Dynamic Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -13,23 +12,35 @@
     <!-- BACKGROUND VIDEO LOOP -->
     <video autoplay muted loop playsinline id="bg-video">
         <source src="bg-video.mp4" type="video/mp4">
-        Your browser does not support HTML5 video.
     </video>
 
-    <!-- GLASS WRAPPER START -->
+    <!-- LOGIN MODAL -->
+    <div id="userModal" class="user-modal">
+        <div class="modal-content">
+            <h2>Enter Your Details</h2>
+            <form id="loginForm">
+                <input type="text" id="userName" placeholder="Full Name" required>
+                <input type="email" id="userEmail" placeholder="Email ID" required>
+                <input type="text" id="userYear" placeholder="Year (e.g. 3rd Year)" required>
+                <input type="text" id="userBranch" placeholder="Branch (e.g. ECE / CSE)" required>
+                <input type="text" id="userSpecialization" placeholder="Tech Specialization (e.g. React / C++)" required>
+                <button type="submit" class="btn primary-btn" style="width: 100%; margin-top: 1rem;">Submit & View Portfolio</button>
+            </form>
+        </div>
+    </div>
+
     <div class="glass-wrapper">
-        
         <!-- Navbar -->
         <header>
             <nav class="navbar">
-                <div class="logo">PM<span>.</span></div>
+                <div class="logo">PORTFOLIO<span>.</span></div>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="#edits">My Edits</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="admin.html" target="_blank" style="color: var(--accent-color);"><i class="fas fa-table"></i> Users Table</a></li>
                 </ul>
+                <button id="openLoginBtn" class="btn secondary-btn" style="padding: 0.5rem 1.2rem; font-size: 0.9rem; margin-left: 1rem;">Login / Switch</button>
                 <div class="menu-btn"><i class="fas fa-bars"></i></div>
             </nav>
         </header>
@@ -38,301 +49,51 @@
         <section id="home" class="hero">
             <div class="hero-content">
                 <p class="greeting">Hi, I am</p>
-                <h1>Pushpendra <span>Mehra</span></h1>
-                <h2 class="typing-text"></h2>
-                <p class="hero-desc">I build scalable web applications, create seamless peer-to-peer network solutions, write robust C++ logic, and edit cinematic videos.</p>
+                <h1 id="dynamic-name">Pushpendra <span>Mehra</span></h1>
+                <h2 class="typing-text" id="dynamic-role">Full-Stack Developer</h2>
+                <p class="hero-desc" id="dynamic-desc">I build scalable web applications, create seamless solutions, and write robust code.</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn primary-btn">View My Work</a>
-                    <a href="#contact" class="btn secondary-btn">Contact Me</a>
                 </div>
             </div>
             <div class="hero-image">
                 <div class="image-wrapper">
-                    <!-- Profile picture -->
-                    <img src="profile.png" alt="Pushpendra Mehra">
+                    <img id="dynamic-avatar" src="profile.png" alt="Profile">
                 </div>
             </div>
         </section>
 
-        <!-- Technical Expertise Section -->
+        <!-- Dynamic Skills Section -->
         <section id="skills" class="skills-section">
             <h2 class="section-title">Technical <span>Expertise</span></h2>
-            <p class="section-subtitle" style="text-align:center; margin-bottom: 3rem; color: #cbd5e1; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Comprehensive knowledge across the full software development lifecycle.</p>
-            
-            <div class="skills-grid">
-                
-                <!-- Skill 1: Frontend Architecture -->
-                <div class="skill-category">
-                    <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
-                    <h3>Frontend Architecture</h3>
-                    <p>Building responsive, accessible, and reactive user interfaces.</p>
-                    
-                    <div class="skill-tree">
-                        <div class="tree-line">
-                            <div class="tree-node">
-                                <h4>HTML5 & CSS3</h4>
-                                <span>Semantic markup, Flexbox, Grid & modern responsive design.</span>
-                            </div>
-                            <div class="tree-node">
-                                <h4>JavaScript (ES6+)</h4>
-                                <span>Asynchronous programming, DOM manipulation & modern JS logic.</span>
-                            </div>
-                            <div class="tree-node">
-                                <h4>React.js & Ecosystem</h4>
-                                <span>Component-driven architecture, Hooks, Redux & Context API.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skill 2: Backend & APIs -->
-                <div class="skill-category">
-                    <div class="skill-icon"><i class="fas fa-server"></i></div>
-                    <h3>Backend & APIs</h3>
-                    <p>Designing robust server-side logic and seamless communication.</p>
-                    
-                    <div class="skill-tree">
-                        <div class="tree-line">
-                            <div class="tree-node">
-                                <h4>Node.js & Express</h4>
-                                <span>Building scalable server-side applications & middleware routing.</span>
-                            </div>
-                            <div class="tree-node">
-                                <h4>RESTful APIs</h4>
-                                <span>Secure endpoint design, HTTP methods & data serialization.</span>
-                            </div>
-                            <div class="tree-node">
-                                <h4>WebSockets</h4>
-                                <span>Real-time bidirectional communication channels.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skill 3: Databases & Storage -->
-                <div class="skill-category">
-                    <div class="skill-icon"><i class="fas fa-database"></i></div>
-                    <h3>Databases & Storage</h3>
-                    <p>Managing persistent, organized storage and optimized data retrieval[cite: 3].</p>
-                    
-                    <div class="skill-tree">
-                        <div class="tree-line">
-                            <div class="tree-node">
-                                <h4>MongoDB (NoSQL)</h4>
-                                <span>Flexible schema design, aggregation pipelines & fast querying.</span>
-                            </div>
-                            <div class="tree-node">
-                                <h4>MySQL & PostgreSQL</h4>
-                                <span>Relational database management, joins & ACID transactions.</span>
-                            </div>
-                            <div class="tree-node">
-                                <h4>Redis Caching</h4>
-                                <span>In-memory data store for high-speed performance.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skill 4: DevOps & Security -->
-                <div class="skill-category">
-                    <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>DevOps & Security</h3>
-                    <p>Automating deployments and securing application data[cite: 3].</p>
-                    
-                    <div class="skill-tree">
-                        <div class="tree-line">
-                            <div class="tree-node">
-                                <h4>Docker & Containers</h4>
-                                <span>Environment consistency and containerized deployment.</span>
-                            </div>
-                            <div class="tree-node">
-                                <h4>CI/CD Pipelines</h4>
-                                <span>Automated testing and building via GitHub Actions.</span>
-                            </div>
-                            <div class="tree-node">
-                                <h4>JWT Authentication</h4>
-                                <span>Secure stateless user session management & RBAC.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="skills-grid" id="dynamic-skills-grid">
+                <!-- Dynamically populated based on user specialization -->
             </div>
-        </section>
-
-        <!-- Projects Section (Mehra Share, Telecom Dashboard & MeTube) -->
-        <section id="projects" class="projects">
-            <h2 class="section-title">My <span>Projects</span></h2>
-            <div class="project-grid">
-                
-                <!-- Project 1: Mehra Share -->
-                <div class="project-card">
-                    <div class="project-info">
-                        <div class="project-header-flex">
-                            <h3>Mehra Share</h3>
-                            <div class="project-links">
-                                <a href="https://mehra-share-file.onrender.com" target="_blank" class="project-action-btn" title="Open Live App">
-                                    <i class="fas fa-external-link-alt"></i> Live App
-                                </a>
-                            </div>
-                        </div>
-                        <p>A fast, peer-to-peer local file sharing web application utilizing WebRTC technology[cite: 3].</p>
-                        <div class="tech-stack">
-                            <span>JavaScript</span> <span>WebRTC</span> <span>Render</span>
-                        </div>
-                        
-                        <div class="project-tree">
-                            <div class="tree-line">
-                                <div class="tree-node">
-                                    <h4>P2P Network</h4>
-                                    <span>Direct browser-to-browser secure file transfer</span>
-                                </div>
-                                <div class="tree-node">
-                                    <h4>Zero-Server Logic</h4>
-                                    <span>Real-time data channels with WebRTC</span>
-                                </div>
-                                <div class="tree-node">
-                                    <h4>Live Deployment</h4>
-                                    <span>Hosted seamlessly on Render</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: Railway Telecom Failure Dashboard -->
-                <div class="project-card">
-                    <div class="project-info">
-                        <div class="project-header-flex">
-                            <h3>Telecom Dashboard</h3>
-                            <div class="project-links">
-                                <a href="https://railway-telecom-dashboard.vercel.app" target="_blank" class="project-action-btn" title="Open Live App">
-                                    <i class="fas fa-external-link-alt"></i> Live App
-                                </a>
-                            </div>
-                        </div>
-                        <p>Real-time monitoring and analytics dashboard for tracking railway telecom asset failures[cite: 3].</p>
-                        <div class="tech-stack">
-                            <span>React / Next.js</span> <span>Analytics</span> <span>Vercel</span>
-                        </div>
-
-                        <div class="project-tree">
-                            <div class="tree-line">
-                                <div class="tree-node">
-                                    <h4>Failure Tracking</h4>
-                                    <span>Real-time monitoring for SCADA, Control & FOIS failures</span>
-                                </div>
-                                <div class="tree-node">
-                                    <h4>Interactive Reports</h4>
-                                    <span>Gear distribution analysis and automated PDF reports</span>
-                                </div>
-                                <div class="tree-node">
-                                    <h4>Live Deployment</h4>
-                                    <span>Hosted and optimized on Vercel</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: MeTube -->
-                <div class="project-card">
-                    <div class="project-info">
-                        <div class="project-header-flex">
-                            <h3>MeTube</h3>
-                            <div class="project-links">
-                                <a href="https://metube-92xl.onrender.com/" target="_blank" class="project-action-btn" title="Open Live App">
-                                    <i class="fas fa-external-link-alt"></i> Live App
-                                </a>
-                            </div>
-                        </div>
-                        <p>A video streaming platform web application for managing and watching media seamlessly.</p>
-                        <div class="tech-stack">
-                            <span>React</span> <span>Node.js</span> <span>Render</span>
-                        </div>
-
-                        <div class="project-tree">
-                            <div class="tree-line">
-                                <div class="tree-node">
-                                    <h4>Media Streaming</h4>
-                                    <span>Smooth video playback and handling</span>
-                                </div>
-                                <div class="tree-node">
-                                    <h4>Dynamic Interface</h4>
-                                    <span>Responsive layout for seamless viewing</span>
-                                </div>
-                                <div class="tree-node">
-                                    <h4>Live Deployment</h4>
-                                    <span>Hosted and managed via Render</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Video Editing Section -->
-        <section id="edits" class="edits-section">
-            <h2 class="section-title">My <span>Edits</span></h2>
-            
-            <div class="yt-channel-card">
-                <div class="yt-banner">
-                    <img src="banner.png" alt="The Lops Banner">
-                </div>
-                <div class="yt-header">
-                    <img class="yt-avatar" src="profile.png" alt="The Lops">
-                    <div class="yt-info">
-                        <h3>The Lops</h3>
-                        <p class="yt-stats">@Mehra27 &bull; 1.19K subscribers &bull; 266 videos</p>
-                        <p class="yt-bio">Just smile 😆 ...more</p>
-                    </div>
-                    <a href="https://www.youtube.com/@Mehra27" target="_blank" class="yt-sub-btn">
-                        <i class="fab fa-youtube"></i> Subscribe
-                    </a>
-                </div>
-            </div>
-
-            <div class="featured-video-container">
-                <div class="video-card featured-video-card">
-                    <div class="video-thumb click-to-play" data-video-id="jjl9_pfZwrk">
-                        <img src="https://img.youtube.com/vi/jjl9_pfZwrk/maxresdefault.jpg" alt="Viral Edit Thumbnail">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3>MEHRA Edit</h3>
-                        <p>Trending viral video edit with smooth transitions.</p>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <h2 class="section-title">Get In <span>Touch</span></h2>
-            <p>Currently preparing for GATE 2027 and open to exciting web development and video editing opportunities.</p>
-            <a href="mailto:your.email@example.com" class="btn primary-btn">Say Hello <i class="fas fa-paper-plane"></i></a>
         </section>
 
         <footer class="glass-footer">
-            <p>&copy; 2026 Pushpendra Mehra. Built with <i class="fas fa-heart"></i> & Code[cite: 3].</p>
+            <p>&copy; 2026 Dynamic Portfolio System.</p>
         </footer>
-        
-    </div> 
-    <!-- GLASS WRAPPER END -->
-
-    <!-- 3D Projector Lightbox -->
-    <div id="projector-modal" class="projector-modal">
-        <div id="projector-ambient-light"></div>
-        <div class="projector-content">
-            <span class="close-projector">&times;</span>
-            <div id="projector-video-container"></div>
-        </div>
     </div>
 
-    <!-- Scripts -->
+    <style>
+        .user-modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.95); z-index: 9999;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .modal-content {
+            background: rgba(255, 255, 255, 0.05); padding: 3rem;
+            border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px); width: 400px; text-align: center;
+        }
+        .modal-content input {
+            width: 100%; padding: 0.8rem; margin: 0.5rem 0; border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: #fff;
+        }
+        .modal-content h2 { color: #fff; margin-bottom: 1rem; }
+    </style>
+
     <script src="script.js"></script>
 </body>
 </html>
