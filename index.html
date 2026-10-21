@@ -1,99 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8fafc">
+  <meta name="description" content="Pushpendra Mehra — ECE student portfolio.">
+  <title>Pushpendra Mehra | ECE Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    
-    <!-- BACKGROUND VIDEO LOOP -->
-    <video autoplay muted loop playsinline id="bg-video">
-        <source src="bg-video.mp4" type="video/mp4">
+  <!-- Background Video Setup -->
+  <div class="video-background">
+    <video autoplay muted loop id="bgVideo">
+      <source src="background.mp4" type="video/mp4">
     </video>
+    <div class="video-overlay"></div>
+  </div>
 
-    <!-- LOGIN MODAL -->
-    <div id="userModal" class="user-modal">
-        <div class="modal-content">
-            <h2>Enter Your Details</h2>
-            <form id="loginForm">
-                <input type="text" id="userName" placeholder="Full Name" required>
-                <input type="email" id="userEmail" placeholder="Email ID" required>
-                <input type="text" id="userYear" placeholder="Year (e.g. 3rd Year)" required>
-                <input type="text" id="userBranch" placeholder="Branch (e.g. ECE / CSE)" required>
-                <input type="text" id="userSpecialization" placeholder="Tech Specialization (e.g. React / C++)" required>
-                <button type="submit" class="btn primary-btn" style="width: 100%; margin-top: 1rem;">Submit & View Portfolio</button>
-            </form>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Portfolio home">
+      <div class="university-mark" aria-hidden="true">PM</div>
+      <div class="brand-copy">
+        <strong>PUSHPENDRA</strong>
+        <span>Electronics &amp; Communication</span>
+      </div>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="nav" id="mainNav">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="register-student.html">Register</a>
+      <a href="students.html">Users Table</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-wrap" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> ECE STUDENT · PROJECT BUILDER</p>
+        <h1>Hi, I'm <span id="heroName">Pushpendra Mehra</span><br><span class="muted-heading">I build ideas into projects.</span></h1>
+        <p class="hero-description" id="heroAbout">Specialized in C++ and electronics engineering. I enjoy turning ideas into practical software and hardware solutions.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">Explore projects <span aria-hidden="true">↗</span></a>
+          <a class="button button-secondary" href="#contact">Get in touch</a>
         </div>
-    </div>
+        <div class="hero-meta">
+          <span><b id="heroCourse">B.Tech ECC</b><small>Degree</small></span>
+          <span><b id="heroSemester">3rd Year</b><small>Current year</small></span>
+          <span><b id="projectCount">03</b><small>Projects</small></span>
+        </div>
+      </div>
+      <aside class="hero-note">
+        <div class="note-top"><span class="note-icon">✳</span><span>WHAT I'M INTO</span></div>
+        <h2>Curiosity meets<br>engineering.</h2>
+        <p>Embedded systems, C++ programming, and useful software.</p>
+        <div class="note-rule"></div>
+        <span class="note-bottom">ECE DEPARTMENT <span>·</span> JODHPUR</span>
+      </aside>
+    </section>
 
-    <div class="glass-wrapper">
-        <!-- Navbar -->
-        <header>
-            <nav class="navbar">
-                <div class="logo">PORTFOLIO<span>.</span></div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="admin.html" target="_blank" style="color: var(--accent-color);"><i class="fas fa-table"></i> Users Table</a></li>
-                </ul>
-                <button id="openLoginBtn" class="btn secondary-btn" style="padding: 0.5rem 1.2rem; font-size: 0.9rem; margin-left: 1rem;">Login / Switch</button>
-                <div class="menu-btn"><i class="fas fa-bars"></i></div>
-            </nav>
-        </header>
+    <section class="section-wrap section-block" id="about">
+      <div class="section-heading">
+        <div><p class="eyebrow">A LITTLE ABOUT ME</p><h2>About <span>me.</span></h2></div>
+        <span class="section-index">01 / 04</span>
+      </div>
+      <div class="about-card">
+        <div class="about-symbol" aria-hidden="true">P.</div>
+        <div>
+          <h3 id="aboutName">Pushpendra Mehra</h3>
+          <p id="aboutText">I am an Electronics &amp; Communication Engineering student passionate about C++ and system development.</p>
+          <div class="about-tags"><span>Problem solving</span><span>C++ Specialist</span><span>Engineering</span></div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <p class="greeting">Hi, I am</p>
-                <h1 id="dynamic-name">Pushpendra <span>Mehra</span></h1>
-                <h2 class="typing-text" id="dynamic-role">Full-Stack Developer</h2>
-                <p class="hero-desc" id="dynamic-desc">I build scalable web applications, create seamless solutions, and write robust code.</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn primary-btn">View My Work</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="image-wrapper">
-                    <img id="dynamic-avatar" src="profile.png" alt="Profile">
-                </div>
-            </div>
-        </section>
+    <section class="section-wrap section-block" id="skills">
+      <div class="section-heading">
+        <div><p class="eyebrow">TOOLS OF THE TRADE</p><h2>Technical <span>skills.</span></h2></div>
+        <span class="section-index">02 / 04</span>
+      </div>
+      <div class="skills-grid" id="skillsGrid">
+        <p class="loading-state">Loading skill logos…</p>
+      </div>
+    </section>
 
-        <!-- Dynamic Skills Section -->
-        <section id="skills" class="skills-section">
-            <h2 class="section-title">Technical <span>Expertise</span></h2>
-            <div class="skills-grid" id="dynamic-skills-grid">
-                <!-- Dynamically populated based on user specialization -->
-            </div>
-        </section>
+    <section class="section-wrap section-block" id="projects">
+      <div class="section-heading">
+        <div><p class="eyebrow">SELECTED WORK</p><h2>Projects I've <span>built.</span></h2></div>
+        <span class="section-index">03 / 04</span>
+      </div>
+      <div class="projects-grid" id="projectsGrid">
+        <p class="loading-state">Loading projects…</p>
+      </div>
+    </section>
 
-        <footer class="glass-footer">
-            <p>&copy; 2026 Dynamic Portfolio System.</p>
-        </footer>
-    </div>
+    <section class="section-wrap section-block contact-section" id="contact">
+      <div class="section-heading">
+        <div><p class="eyebrow">LET'S CONNECT</p><h2>Have something in <span>mind?</span></h2></div>
+        <span class="section-index">04 / 04</span>
+      </div>
+      <div class="contact-layout">
+        <div class="contact-copy">
+          <p>I'm always interested in learning, collaborating, and working on meaningful engineering projects.</p>
+          <div class="contact-links" id="contactLinks"></div>
+        </div>
+        <form id="contactForm" class="contact-form">
+          <label for="contactName">Your name</label>
+          <input id="contactName" name="name" autocomplete="name" placeholder="Name" required>
+          <label for="contactEmail">Email address</label>
+          <input id="contactEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          <label for="contactMessage">Message</label>
+          <textarea id="contactMessage" name="message" rows="4" placeholder="Tell me what you're thinking…" required></textarea>
+          <button class="button button-primary" type="submit">Send message <span aria-hidden="true">↗</span></button>
+          <p class="form-message" id="formMessage" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
 
-    <style>
-        .user-modal {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.95); z-index: 9999;
-            display: flex; justify-content: center; align-items: center;
-        }
-        .modal-content {
-            background: rgba(255, 255, 255, 0.05); padding: 3rem;
-            border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px); width: 400px; text-align: center;
-        }
-        .modal-content input {
-            width: 100%; padding: 0.8rem; margin: 0.5rem 0; border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: #fff;
-        }
-        .modal-content h2 { color: #fff; margin-bottom: 1rem; }
-    </style>
-
-    <script src="script.js"></script>
+  <footer class="site-footer">
+    <a class="footer-brand" href="#home">PUSHPENDRA MEHRA<span> · PORTFOLIO</span></a>
+    <p>Designed with purpose. Built while learning.</p>
+    <a href="#home" class="back-top">Back to top ↑</a>
+  </footer>
 </body>
 </html>
