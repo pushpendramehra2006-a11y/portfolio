@@ -2,11 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 
-mongoose.connect('mongodb://127.0.0.1:27017/mbm_portfolio', {
+// MongoDB Atlas Cloud Connection String with your password
+const mongoURI = process.env.MONGO_URI || 'mongodb+srv://pushpendramehra2006_db_user:mSFObUs2s4E1fF3P@cluster0.g8bcmkf.mongodb.net/mbm_portfolio?retryWrites=true&w=majority';
+
+mongoose.connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}).then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err));
+}).then(() => console.log('MongoDB Atlas Connected Successfully'))
+  .catch(err => console.log('DB Connection Error:', err));
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
@@ -14,14 +17,17 @@ app.use(express.static('public'));
 
 const Student = require('./models/Student');
 
+// Home Route (Portfolio)
 app.get('/', (req, res) => {
     res.render('index');
 });
 
+// Register Form Route
 app.get('/register', (req, res) => {
     res.render('register');
 });
 
+// Handle Student Registration (POST)
 app.post('/register', async (req, res) => {
     try {
         await Student.create(req.body);
@@ -31,6 +37,7 @@ app.post('/register', async (req, res) => {
     }
 });
 
+// Registered Students Table Route
 app.get('/students', async (req, res) => {
     try {
         const students = await Student.find({});
@@ -40,6 +47,7 @@ app.get('/students', async (req, res) => {
     }
 });
 
+// Edit Student Form Route
 app.get('/edit/:id', async (req, res) => {
     try {
         const student = await Student.findById(req.params.id);
@@ -49,6 +57,7 @@ app.get('/edit/:id', async (req, res) => {
     }
 });
 
+// Update Student Route (POST)
 app.post('/edit/:id', async (req, res) => {
     try {
         await Student.findByIdAndUpdate(req.params.id, req.body);
@@ -58,6 +67,7 @@ app.post('/edit/:id', async (req, res) => {
     }
 });
 
+// Delete Student Route
 app.get('/delete/:id', async (req, res) => {
     try {
         await Student.findByIdAndDelete(req.params.id);
@@ -67,6 +77,7 @@ app.get('/delete/:id', async (req, res) => {
     }
 });
 
-app.listen(3000, () => {
-    console.log('Server running on http://localhost:3000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
