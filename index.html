@@ -1,73 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pushpendra Mehra | ECE Portfolio - MBM University</title>
+
+    <title>ECE Student Portfolio - MBM University</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-    <!-- Background Video Setup -->
-    <div class="video-background">
-        <video autoplay muted loop id="bgVideo">
-            <source src="bg-video.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay"></div>
-    </div>
 
     <header>
+
         <h1>MBM UNIVERSITY, JODHPUR</h1>
+
         <h2>Electronics & Communication Dept.</h2>
-        <h3>Student Portfolio - Pushpendra Mehra</h3>
+
+        <h3>Student Portfolio</h3>
+
     </header>
 
     <nav>
+
         <a href="#about">About</a>
+
         <a href="#skills">Skills</a>
+
         <a href="#projects">Projects</a>
+
         <a href="#contact">Contact</a>
+
     </nav>
 
     <section id="about">
+
         <h2>About Me</h2>
-        <p>Name: Pushpendra Mehra | B.Tech ECE 3rd Year</p>
-        <p>I am a student of Electronics & Communication Engineering at MBM University. Interested in C++, Embedded Systems and Web Development.</p>
+
+        <p>Name: [Your Name] | B.Tech ECE 5th Sem</p>
+
+        <p>I am a student of Electronics & Communication Engineering. Interested in Embedded Systems and Web Development.</p>
+
     </section>
 
     <section id="skills">
+
         <h2>Technical Skills</h2>
+
         <ul>
-            <li>C++, C Programming, Arduino, MATLAB</li>
-            <li>HTML, CSS, JavaScript, Node.js, MongoDB</li>
-            <li>Circuit Designing & Electronics</li>
+
+            <li>C Programming, Arduino, MATLAB</li>
+
+            <li>HTML, CSS, JavaScript</li>
+
+            <li>Circuit Designing</li>
+
         </ul>
+
     </section>
 
     <section id="projects">
+
         <h2>Projects</h2>
+
         <div class="card">1. Home Automation using IoT</div>
-        <div class="card">2. Dynamic Portfolio & Backend System</div>
+
+        <div class="card">2. ECE Department Website (Frontend)</div>
+
     </section>
 
     <section id="contact">
+
         <h2>Contact Me</h2>
+
         <form onsubmit="return validate()">
-            <input type="text" id="name" placeholder="Enter Your Name" required>
-            <input type="email" id="email" placeholder="Enter Email" required>
+
+            <input type="text" id="name" placeholder="Enter Your Name">
+
+            <input type="email" id="email" placeholder="Enter Email">
+
             <button type="submit">Submit</button>
+
         </form>
+
     </section>
 
     <script>
+
         function validate(){
+
             let n = document.getElementById("name").value;
+
             if(n==""){
+
                 alert("Please Enter Name");
+
                 return false;
+
             }
+
             alert("Form Submitted Successfully!");
+
             return true;
+
         }
+
     </script>
+
 </body>
+
 </html>
