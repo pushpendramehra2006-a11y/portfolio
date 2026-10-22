@@ -1,133 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#030712">
-  <meta name="description" content="Pushpendra Mehra — ECE student portfolio at MBM University, Jodhpur.">
-  <title>Pushpendra Mehra | ECE Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pushpendra Mehra | ECE Portfolio - MBM University</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Background Video Setup -->
-  <div class="video-background">
-    <video autoplay muted loop id="bgVideo">
-      <source src="bg-video.mp4" type="video/mp4">
-    </video>
-    <div class="video-overlay"></div>
-  </div>
+    <!-- Background Video Setup -->
+    <div class="video-background">
+        <video autoplay muted loop id="bgVideo">
+            <source src="bg-video.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
 
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="Portfolio home">
-      <div class="university-mark" aria-hidden="true">PM</div>
-      <div class="brand-copy">
-        <strong>PUSHPENDRA MEHRA</strong>
-        <span>Electronics &amp; Communication</span>
-      </div>
-    </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-    <nav class="nav" id="mainNav">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-      <a href="register-student.html">Register Data</a>
-      <a href="students.html">MongoDB Table</a>
+    <header>
+        <h1>MBM UNIVERSITY, JODHPUR</h1>
+        <h2>Electronics & Communication Dept.</h2>
+        <h3>Student Portfolio - Pushpendra Mehra</h3>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
     </nav>
-  </header>
 
-  <main>
-    <section class="hero section-wrap" id="home">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="status-dot"></span> ECE STUDENT · PROJECT BUILDER</p>
-        <h1>Hi, I'm <span id="heroName">Pushpendra Mehra</span><br><span class="muted-heading">I build ideas into projects.</span></h1>
-        <p class="hero-description" id="heroAbout">Specialized in C++ and electronics engineering. I enjoy turning ideas into practical software and hardware solutions.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#projects">Explore projects <span aria-hidden="true">↗</span></a>
-          <a class="button button-secondary" href="register-student.html">Data Entry Form</a>
-        </div>
-        <div class="hero-meta">
-          <span><b id="heroCourse">B.Tech ECC</b><small>Degree</small></span>
-          <span><b id="heroSemester">3rd Year</b><small>Current year</small></span>
-          <span><b id="projectCount">03</b><small>Projects</small></span>
-        </div>
-      </div>
-      <aside class="hero-note">
-        <div class="note-top"><span class="note-icon">✳</span><span>WHAT I'M INTO</span></div>
-        <h2>Curiosity meets<br>engineering.</h2>
-        <p>C++ programming, embedded systems, and useful software.</p>
-        <div class="note-rule"></div>
-        <span class="note-bottom">MBM UNIVERSITY <span>·</span> JODHPUR</span>
-      </aside>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Name: Pushpendra Mehra | B.Tech ECE 3rd Year</p>
+        <p>I am a student of Electronics & Communication Engineering at MBM University. Interested in C++, Embedded Systems and Web Development.</p>
     </section>
 
-    <section class="section-wrap section-block" id="about">
-      <div class="section-heading">
-        <div><p class="eyebrow">A LITTLE ABOUT ME</p><h2>About <span>me.</span></h2></div>
-        <span class="section-index">01 / 04</span>
-      </div>
-      <div class="about-card">
-        <div class="about-symbol" aria-hidden="true">P.</div>
-        <div>
-          <h3 id="aboutName">Pushpendra Mehra</h3>
-          <p id="aboutText">I am an Electronics &amp; Communication Engineering student at MBM University, Jodhpur. Passionate about C++ development and system architecture.</p>
-          <div class="about-tags"><span>Problem solving</span><span>C++ Specialist</span><span>Engineering</span></div>
-        </div>
-      </div>
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <ul>
+            <li>C++, C Programming, Arduino, MATLAB</li>
+            <li>HTML, CSS, JavaScript, Node.js, MongoDB</li>
+            <li>Circuit Designing & Electronics</li>
+        </ul>
     </section>
 
-    <section class="section-wrap section-block" id="skills">
-      <div class="section-heading">
-        <div><p class="eyebrow">TOOLS OF THE TRADE</p><h2>Technical <span>skills.</span></h2></div>
-        <span class="section-index">02 / 04</span>
-      </div>
-      <div class="skills-grid" id="skillsGrid">
-        <p class="loading-state">Loading skill logos…</p>
-      </div>
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="card">1. Home Automation using IoT</div>
+        <div class="card">2. Dynamic Portfolio & Backend System</div>
     </section>
 
-    <section class="section-wrap section-block" id="projects">
-      <div class="section-heading">
-        <div><p class="eyebrow">SELECTED WORK</p><h2>Projects I've <span>built.</span></h2></div>
-        <span class="section-index">03 / 04</span>
-      </div>
-      <div class="projects-grid" id="projectsGrid">
-        <p class="loading-state">Loading projects…</p>
-      </div>
-    </section>
-
-    <section class="section-wrap section-block contact-section" id="contact">
-      <div class="section-heading">
-        <div><p class="eyebrow">LET'S CONNECT</p><h2>Have something in <span>mind?</span></h2></div>
-        <span class="section-index">04 / 04</span>
-      </div>
-      <div class="contact-layout">
-        <div class="contact-copy">
-          <p>I'm always interested in learning, collaborating, and working on meaningful engineering projects.</p>
-          <div class="contact-links" id="contactLinks"></div>
-        </div>
-        <form id="contactForm" class="contact-form">
-          <label for="contactName">Your name</label>
-          <input id="contactName" name="name" autocomplete="name" placeholder="Name" required>
-          <label for="contactEmail">Email address</label>
-          <input id="contactEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
-          <label for="contactMessage">Message</label>
-          <textarea id="contactMessage" name="message" rows="4" placeholder="Tell me what you're thinking…" required></textarea>
-          <button class="button button-primary" type="submit">Send message <span aria-hidden="true">↗</span></button>
-          <p class="form-message" id="formMessage" role="status"></p>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form onsubmit="return validate()">
+            <input type="text" id="name" placeholder="Enter Your Name" required>
+            <input type="email" id="email" placeholder="Enter Email" required>
+            <button type="submit">Submit</button>
         </form>
-      </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <a class="footer-brand" href="#home">PUSHPENDRA MEHRA<span> · ECE PORTFOLIO</span></a>
-    <p>Designed with purpose. Built while learning.</p>
-    <a href="#home" class="back-top">Back to top ↑</a>
-  </footer>
+    <script>
+        function validate(){
+            let n = document.getElementById("name").value;
+            if(n==""){
+                alert("Please Enter Name");
+                return false;
+            }
+            alert("Form Submitted Successfully!");
+            return true;
+        }
+    </script>
 </body>
 </html>
